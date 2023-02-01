@@ -34,6 +34,7 @@ watch(forEdit, () => {
       <input class="rounded-md py-2 px-3 w-full" placeholder="Name" v-model="name" />
       <input class="rounded-md py-2 px-3 w-full" placeholder="Price" v-model="price" />
       <CustomButton class="w-full" :label="store.state.forEdit ? 'Save': 'Create'"
+        :disabled="!name || !price"
         @click="store.commit(store.state.forEdit ? 'editProduct' : 'addProduct', { product: { name, price } }); clearForm()"
         />
     </div>
